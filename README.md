@@ -1,3 +1,8 @@
+# 環境構築
+npx create-react-app react-todo
+
+# 開発環境
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
