@@ -4,13 +4,7 @@ import Todo from './Todo';
 
 const TodoList = ({todos}) => {
   console.log(todos);
-  // return todos.map((todo) =>  <Todo todo={todo} />);
-  return todos.map((todo) =>  {
-    return (
-        <li>{todo}</li>
-    )
-
-  });
+  return todos.map((todo, index) =>  <Todo todo={todo} key={index}/>);
 };
 
 export default TodoList;
