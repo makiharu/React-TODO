@@ -2,9 +2,9 @@
 import React from 'react'
 import Todo from './Todo';
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, toggleTodo}) => {
   console.log(todos);
-  return todos.map((todo, index) =>  <Todo todo={todo} key={index}/>);
+  return todos.map((todo) =>  <Todo todo={todo} key={todo.id} toggleTodo={toggleTodo}/>);
 };
 
 export default TodoList;
