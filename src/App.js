@@ -8,7 +8,6 @@ import * as React from 'react';
 function App() {
   // const [todos, setTodos] = useState(["aaaaa","bbb","ccc"]);
   const [todos, setTodos] = useState([{id: 1, name: "Toddo1", completed: false}]);
-
   const todoRef = useRef();
 
   // focus実装
@@ -48,6 +47,17 @@ function App() {
     setTodos(newTodos);
   }
 
+  const [name, setName] = useState("hoge");
+
+  const btnHogeClick = (e) => {
+    // window.alert(e.target.textContent);
+    setName(e.target.textContent);
+  }
+  const btnFugaClick = (e) => {
+    // console.log(e.target.textContent);
+    setName(e.target.textContent);
+  }
+
   return (
     <div>
       <div>Hello React</div>
@@ -57,6 +67,11 @@ function App() {
       <button onClick={handleAddTodo}>追加</button>
       <button onClick={handleDeleteTodo}>削除</button>
       <div>残りタスク: {todos.filter((todo) => !todo.completed).length}</div>
+
+      {/* ボタンを押下する毎に、テキストを取得し、値が切り替わる */}
+      <p>こんにちは、{name}さん</p>
+      <button type="button" onClick={btnHogeClick} value="hoge">hoge</button>
+      <button type="button" onClick={btnFugaClick} value="fuga">fuga</button>
     </div>
   );
 }
