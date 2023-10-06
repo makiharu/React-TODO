@@ -2,6 +2,18 @@
 npx create-react-app react-todo
 
 # 開発環境
+npm 9.5.1
+node v18.16.0
+
+# npm
+## uuid
+https://www.npmjs.com/package//uuid
+1. Install
+
+### `npm install uuid`
+2. Create a UUID (ES6 module syntax)
+
+### `import { v4 as uuidv4 } from 'uuid';`
 
 # Getting Started with Create React App
 
