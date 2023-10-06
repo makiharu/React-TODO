@@ -58,6 +58,7 @@ function App() {
     setName(e.target.textContent);
   }
 
+
   return (
     <div>
       <div>Hello React</div>
@@ -72,6 +73,9 @@ function App() {
       <p>こんにちは、{name}さん</p>
       <button type="button" onClick={btnHogeClick} value="hoge">hoge</button>
       <button type="button" onClick={btnFugaClick} value="fuga">fuga</button>
+
+
+      <button type="button" onClick={()=> alert("poo")}>poo</button> 
     </div>
   );
 }
