@@ -58,6 +58,15 @@ function App() {
     setName(e.target.textContent);
   }
 
+  const [count, setCount] = useState(0);
+  const handleAddCount = () =>{
+    setCount(count + 1);
+  }
+
+  const handleResetCount = () => {
+    setCount(0);
+  }
+
 
   return (
     <div>
@@ -69,13 +78,19 @@ function App() {
       <button onClick={handleDeleteTodo}>削除</button>
       <div>残りタスク: {todos.filter((todo) => !todo.completed).length}</div>
 
+      <hr />
+
       {/* ボタンを押下する毎に、テキストを取得し、値が切り替わる */}
       <p>こんにちは、{name}さん</p>
       <button type="button" onClick={btnHogeClick} value="hoge">hoge</button>
       <button type="button" onClick={btnFugaClick} value="fuga">fuga</button>
 
+      <hr />
+      {/* カウントする */}
+      <button type="button" onClick={handleAddCount}>+</button>
+      <button type="button" onClick={handleResetCount}>リセット</button>
+      {count}
 
-      <button type="button" onClick={()=> alert("poo")}>poo</button> 
     </div>
   );
 }
