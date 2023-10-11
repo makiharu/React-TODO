@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import * as React from 'react';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+
 
 function App() {
   // const [todos, setTodos] = useState(["aaaaa","bbb","ccc"]);
@@ -67,7 +69,6 @@ function App() {
     setCount(0);
   }
 
-
   return (
     <div>
       <div>Hello React</div>
@@ -91,6 +92,41 @@ function App() {
       <button type="button" onClick={handleResetCount}>リセット</button>
       {count}
 
+      <hr />
+      {/* ドラッグ&ドロップ */}
+      {/* <DragDropContext>
+        <Droppable droppableId='droppable'>
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              <Draggable>{(provided) => {
+                <div>item0</div>
+              }}</Draggable>
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext> */}
+      <DragDropContext>
+        <Droppable droppableId='droppable'>
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              <Draggable draggableId="item-0" index={0}>
+                {(provided) => (
+                  <div 
+                    ref={provided.innerRef} 
+                    {...provided.draggableProps} 
+                    {...provided.dragHandleProps}
+                  >
+                    item0
+                  </div>
+                )}
+              </Draggable>
+              {provided.placeholder}
+            </div>
+          )}
+      </Droppable>
+    </DragDropContext>
+
+      
     </div>
   );
 }
