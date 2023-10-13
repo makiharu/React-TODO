@@ -1,3 +1,10 @@
+# 内容
+1. TODOアプリ
+2. focus実装
+3. ログイン処理
+4. 日付のプルダウン
+5. Trello
+
 # 環境構築
 npx create-react-app react-todo
 
@@ -5,7 +12,6 @@ npx create-react-app react-todo
 npm 9.5.1
 node v18.16.0
 
-# npm
 ## uuid
 https://www.npmjs.com/package//uuid
 1. Install
