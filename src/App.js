@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import * as React from 'react';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import NumberInput from './components/NumberInput';
+import NumberInput2 from './components/NumberInput2';
 
 function App() {
   // const [todos, setTodos] = useState(["aaaaa","bbb","ccc"]);
@@ -58,6 +61,14 @@ function App() {
     setName(e.target.textContent);
   }
 
+  const [count, setCount] = useState(0);
+  const handleAddCount = () =>{
+    setCount(count + 1);
+  }
+
+  const handleResetCount = () => {
+    setCount(0);
+  }
 
   return (
     <div>
@@ -69,13 +80,65 @@ function App() {
       <button onClick={handleDeleteTodo}>削除</button>
       <div>残りタスク: {todos.filter((todo) => !todo.completed).length}</div>
 
+      <hr />
+
       {/* ボタンを押下する毎に、テキストを取得し、値が切り替わる */}
       <p>こんにちは、{name}さん</p>
       <button type="button" onClick={btnHogeClick} value="hoge">hoge</button>
       <button type="button" onClick={btnFugaClick} value="fuga">fuga</button>
 
+      <hr />
+      {/* カウントする */}
+      <button type="button" onClick={handleAddCount}>+</button>
+      <button type="button" onClick={handleResetCount}>リセット</button>
+      {count}
 
-      <button type="button" onClick={()=> alert("poo")}>poo</button> 
+      <hr />
+      {/* ドラッグ&ドロップ */}
+      {/* <DragDropContext>
+        <Droppable droppableId='droppable'>
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              <Draggable>{(provided) => {
+                <div>item0</div>
+              }}</Draggable>
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext> */}
+      <DragDropContext>
+        <Droppable droppableId='droppable'>
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              <Draggable draggableId="item-0" index={0}>
+                {(provided) => (
+                  <div 
+                    ref={provided.innerRef} 
+                    {...provided.draggableProps} 
+                    {...provided.dragHandleProps}
+                  >
+                    item0
+                  </div>
+                )}
+              </Draggable>
+              {provided.placeholder}
+            </div>
+          )}
+      </Droppable>
+    </DragDropContext>
+
+    <hr/>
+    <h2>数値のみ入力 パターン1</h2>
+    <NumberInput />
+    <hr/>
+    <h2>数値のみ入力 パターン2</h2>
+    <NumberInput2 />
+
+    <hr/>
+    {/* TODO */}
+    <h2>桁数チェック</h2>
+    <input type="text"></input>
+      
     </div>
   );
 }
