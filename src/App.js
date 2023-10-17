@@ -5,7 +5,8 @@ import { useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import * as React from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-
+import NumberInput from './components/NumberInput';
+import NumberInput2 from './components/NumberInput2';
 
 function App() {
   // const [todos, setTodos] = useState(["aaaaa","bbb","ccc"]);
@@ -126,6 +127,17 @@ function App() {
       </Droppable>
     </DragDropContext>
 
+    <hr/>
+    <h2>数値のみ入力 パターン1</h2>
+    <NumberInput />
+    <hr/>
+    <h2>数値のみ入力 パターン2</h2>
+    <NumberInput2 />
+
+    <hr/>
+    {/* TODO */}
+    <h2>桁数チェック</h2>
+    <input type="text"></input>
       
     </div>
   );
