@@ -5,9 +5,9 @@ import { useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import * as React from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import NumberInput from './components/NumberInput';
-import NumberInput2 from './components/NumberInput2';
-import DigitCheckInput from './components/DigitCheckInput';
+import NumberInput from './components/input/NumberInput';
+import NumberInput2 from './components/input/NumberInput2';
+import DigitCheckInput from './components/input/DigitCheckInput';
 
 function App() {
   // const [todos, setTodos] = useState(["aaaaa","bbb","ccc"]);
