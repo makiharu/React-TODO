@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+/**
+ * パスワード再確認用 入力フォーム
+ */
+// TODO 文字数制限チェックを追加
 function PasswordInput(props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -10,15 +14,24 @@ function PasswordInput(props) {
     return password === confirmPassword;
   };
 
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleconfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
   return (
     <div>
       <div>
+        <p>半角数字{maxLength}桁で入力してください。</p>
         <label>
           パスワード:
           <input
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
           />
         </label>
       </div>
@@ -29,7 +42,7 @@ function PasswordInput(props) {
           <input
             type="password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={handleconfirmPasswordChange}
           />
         </label>
       </div>
