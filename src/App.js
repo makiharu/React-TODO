@@ -7,6 +7,7 @@ import * as React from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import NumberInput from './components/NumberInput';
 import NumberInput2 from './components/NumberInput2';
+import DigitCheckInput from './components/DigitCheckInput';
 
 function App() {
   // const [todos, setTodos] = useState(["aaaaa","bbb","ccc"]);
@@ -137,7 +138,7 @@ function App() {
     <hr/>
     {/* TODO */}
     <h2>桁数チェック</h2>
-    <input type="text"></input>
+    <DigitCheckInput maxDigits={5} />
       
     </div>
   );
