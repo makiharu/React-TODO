@@ -3,7 +3,6 @@ import React, { useState } from "react";
 /**
  * パスワード再確認用 入力フォーム
  */
-// TODO 文字数制限チェックを追加
 function PasswordInput(props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
